@@ -1,7 +1,9 @@
 package io.github.wesauis.freezeweather;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.ThunderChangeEvent;
@@ -28,6 +30,15 @@ public class WeatherManager implements Listener, CommandExecutor {
         } else {
             return Weather.CLEAR;
         }
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        locked = !locked;
+        config.saveFile();
+
+        sender.sendMessage("weather mode -> " + (locked ? weather.toString().toLowerCase() : "default"));
+        return true;
     }
 
     public void disable() {

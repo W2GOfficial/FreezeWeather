@@ -5,3 +5,7 @@ main: io.github.wesauis.freezeweather.FreezeWeather
 api-version: '1.8'
 authors: [wesauis]
 website: github.com/wesauis/FreezeWeather
+commands:
+    freezeweather:
+        description: allows to stop the state of the climate
+        usage: /freezeweather

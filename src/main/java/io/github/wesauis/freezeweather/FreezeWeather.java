@@ -11,6 +11,7 @@ public final class FreezeWeather extends JavaPlugin {
         // Plugin startup logic
 
         weatherManager = new WeatherManager(this);
+        getCommand("freezeweather").setExecutor(weatherManager);
         Bukkit.getServer().getPluginManager().registerEvents(weatherManager, this);
 
         getLogger().info("Successfully enabled!");
